@@ -53,9 +53,15 @@ inline void SafeRelease(Interface *&pInterfaceToRelease) {
 uint32_t g_sync = 1;
 uint32_t g_bg_data[256 * 256 + 256];
 
+#define SFC_DEFINE_GUID(name, l, w1, w2, b1, b2, b3, b4, b5, b6, b7, b8) \
+    const GUID name = { l, w1, w2, { b1, b2,  b3,  b4,  b5,  b6,  b7,  b8 } }
+
+// IID_ID2D1Factory1
+SFC_DEFINE_GUID(IID_ID2D1Factory1, 0xbb12d362,0xdaee,0x4b9a,0xaa,0x1d,0x14,0xba,0x40,0x1c,0xfa,0x1f);
+
 extern "C" void main_cpp() noexcept {
     // DPIAware
-    ::SetProcessDPIAware();
+    // ::SetProcessDPIAware();
     // 注册窗口
     WNDCLASSEXW wcex = { sizeof(WNDCLASSEXW) };
     wcex.style = CS_HREDRAW | CS_VREDRAW;
