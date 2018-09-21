@@ -302,3 +302,8 @@ $RECYCLE.BIN/
 
 # Windows shortcuts
 *.lnk
+
+
+tools/
+.build/
+*.exe
